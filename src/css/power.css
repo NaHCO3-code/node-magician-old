@@ -1,0 +1,111 @@
+*{
+  padding: 0;
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace;
+  --background-color: #101010;
+  --main-color: #5599dd;
+  --power-color: #ecec64;
+  --x: 0px;
+  --y: 0px;
+}
+
+.MPower{
+  display: grid;
+  grid-template-rows: 40px 1fr;
+  grid-template-columns: auto auto;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: var(--background-color);
+  position: fixed;
+  top: var(--y);
+  left: var(--x);
+
+  border-radius: 5px;
+  border-top: 5px solid var(--main-color);
+  outline: 0px solid var(--main-color);
+  margin: 3px;
+
+  min-width: 200px;
+  min-height: 200px;
+  transition: border .2s cubic-bezier(0, 0, 0.6, 2), padding .2s cubic-bezier(0, 0, 0.6, 2);
+}
+
+.MPower:active{
+  padding-top: 5px;
+  border-top: 0px solid #ffffff00;
+  outline: 1px solid var(--main-color);
+}
+
+.title{
+  padding-bottom: 4px;
+  margin: 0px 5px 0px 6px;
+  font-size: 20px;
+  border-bottom: 1px solid var(--main-color);
+  grid-column:1 / span 2;
+}
+
+.socket{
+  padding: 5px;
+}
+
+.socket-in{
+  grid-column: 1;
+}
+
+.socket-out{
+  grid-column: 2;
+}
+
+
+
+.socket-in .socket::before{
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 10px;
+  margin-right: 3px;
+  background-color: var(--main-color);
+  clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+}
+
+.socket-out .socket::after{
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 10px;
+  margin-left: 3px;
+  background-color: var(--main-color);
+  clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+}
+
+.socket:hover{
+  outline: 1px solid var(--main-color);
+}
+
+
+.title::before{
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 10px;
+  margin-right: 3px;
+  margin-bottom: 2px;
+  background-color: var(--power-color);
+  clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+}
+
+
+.title::after{
+  content: '';
+  display: block;
+  float: right;
+  position: relative;
+  top: 11px;
+  width: 8px;
+  height: 10px;
+  margin-right: 3px;
+  margin-bottom: 2px;
+  background-color: var(--power-color);
+  clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+}
