@@ -1,7 +1,8 @@
-import { MPowerSchema, MDataTypes, MData } from "./types"
+import { MPowerSchema, MDataTypes, MData, MBlockType } from "./types"
 
 export const PowerSchema: MPowerSchema[] = [
   {
+    class: "控制台",
     name: "console.log",
     title: "输出",
     inputs: [
@@ -17,8 +18,9 @@ export const PowerSchema: MPowerSchema[] = [
   }
 ]
 
-export const Save:MSave = [
-  {
-
-  }
-]
+// export const Save:MSave = [
+//   {
+//     type: MBlockType.root,
+    
+//   }
+// ]

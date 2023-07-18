@@ -1,46 +1,58 @@
-import { Vector2 } from "./lm"
+export type NodeToken = number
 
-export enum MDataTypes{
+export enum DataType{
   string,
   number,
   boolean,
-  array,
+  any
 }
 
-export enum MBlockType{
+export enum SocketType{
+  simple,
+  input,
+  select
+}
+
+export enum BlockType{
   root,
-  if,
-  for,
-  while,
-  def,
-  other
+  event,
+  logic,
 }
 
-export type MNodeToken = number
-export type MData = {type: MDataTypes, val: any}
-
-
-export interface MDataSocketSchema{
-  name: string,
-  type: MDataTypes
+export interface IData{
+  value: string
 }
 
-export interface MPowerSchema{
-  name: string,
-  title: string,
-  inputs: MDataSocketSchema[],
-  outputs: MDataSocketSchema[],
-  template: (inputs: MData[])=>string,
+export interface IDataSocketSchema{
+  type: SocketType
+  dataType: DataType
+  title: string
+  required: boolean
+  defaultContent?: any
 }
 
-export interface MPowerSave{
-  schema: MPowerSchema,
-  position: Vector2,
-  fromNode: MNodeToken,
-  toNode: MNodeToken,
+export interface IPowerSocketSchema{
+  title: string
 }
 
-export interface MBlock{
-  type: MBlockType,
-  
+export interface IPowerSchema{
+  class: string
+  name: string
+  title: string
+  inputs: IDataSocketSchema[]
+  outputs: IDataSocketSchema[]
+  template: (inputs: IData[])=>string
+  color?: string
+}
+
+export interface IBlock{
+  class: string
+  type: BlockType
+  name: string
+  title: string
+  inputs: IDataSocketSchema[]
+  exports: (inputs: IDataSocketSchema[])=>string[]
+  index: IPowerSocketSchema[]
+  template: (content: string[][], inputs: IData[])=>string
+  color?: string 
 }

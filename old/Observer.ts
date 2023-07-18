@@ -23,7 +23,8 @@ export class Power{
   }
 
   static defauleSchema: MPowerSchema = {
-    name: "defaultSchema",
+    class: "",
+    name: "default",
     title: "",
     inputs: [],
     outputs: [],
