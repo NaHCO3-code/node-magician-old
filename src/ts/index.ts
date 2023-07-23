@@ -1,2 +1,2 @@
 
-document.getElementById("loading")?.remove();
+  document.getElementById("loading")?.remove();
