@@ -1,5 +1,6 @@
 
 type v2d={x:number,y:number}
+
 export class Vector2{
   x: number
 
