@@ -1,58 +1,18 @@
-export type NodeToken = number
+type SocketId = number
 
-export enum DataType{
+enum DataType{
   string,
   number,
-  boolean,
-  any
+  array,
 }
 
-export enum SocketType{
-  simple,
-  input,
-  select
+interface DataSocketSchema{
+  type: DataType,
+  title: string,
+  required: boolean,
 }
 
-export enum BlockType{
-  root,
-  event,
-  logic,
+interface PowerSocketSchema{
+  title: string,
 }
 
-export interface IData{
-  value: string
-}
-
-export interface IDataSocketSchema{
-  type: SocketType
-  dataType: DataType
-  title: string
-  required: boolean
-  defaultContent?: any
-}
-
-export interface IPowerSocketSchema{
-  title: string
-}
-
-export interface IPowerSchema{
-  class: string
-  name: string
-  title: string
-  inputs: IDataSocketSchema[]
-  outputs: IDataSocketSchema[]
-  template: (inputs: IData[])=>string
-  color?: string
-}
-
-export interface IBlock{
-  class: string
-  type: BlockType
-  name: string
-  title: string
-  inputs: IDataSocketSchema[]
-  exports: (inputs: IDataSocketSchema[])=>string[]
-  index: IPowerSocketSchema[]
-  template: (content: string[][], inputs: IData[])=>string
-  color?: string 
-}
