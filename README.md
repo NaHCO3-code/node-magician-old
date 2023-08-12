@@ -76,3 +76,5 @@ schema用于描述一个抽象的基类。
 ## Node，Block和Socket
 
 所有具体的Node,Block和Scoket应使用原名。
+
+例如`DataNode`，`Block`
